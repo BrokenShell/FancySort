@@ -10,7 +10,7 @@ This workshop will walk through a sophisticated sorting procedure using Python's
 ## 1. Sorted vs. Sort
 In this step we'll introduce Python's builtin sorting tools: `sort` and `sorted`. They both will sort a list and they both support the `key` parameter, we'll come back to the `key` parameter later on. Sort and Sorted are very similar but have subtle distinctions that can be very important. Sort is a method on the list object, where Sorted is a free function. But this isn't the only difference. Sort will destructively alter the list it is called on, where Sorted will return a new sorted list, non-destructively.
 
-In this context "destructive" does not mean the list may be deleted or items removed. It simply means rearranging the items in a list is a destructive operation. Nothing is deleted.
+In this context "destructive" does not mean the list may be deleted or items removed. It simply means rearranging the items in a list is a destructive operation because the original order is not preserved.
 
 In our example it doesn't matter which one we use - altering the list is perfectly fine because nothing in the rest of the app is relying on the original order of the list. However, this is not always the case. Occasionally we'll need to produce a new sorted list and retain the original order. When the original order doesn't matter - the Sort method is preferred due to its lower memory requirements as it does the sorting "in-place" and doesn't make a copy where the Sorted function produces a copy and thus uses more memory. In either case the builtin sorting tools are considerably (several orders of magnitude) faster than anything we could write ourselves in Python.
 
