@@ -1,4 +1,4 @@
-# Fancy Sort, DS Workshop - Step by Step
+# Data Science Workshop - Fancy Sort
 
 
 ## 0. Introduction and Motivation
