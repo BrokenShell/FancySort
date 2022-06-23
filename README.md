@@ -22,13 +22,7 @@ Function: sorted(Iterable) - Returns a new sorted list from any iterable (Non-de
 ### Check for Understanding
 1. What are the similarities between Sort and Sorted?
 2. What are the differences between Sort and Sorted?
-3. What does destructive mean in this context? Does it mean items may be removed from the list? 
-
-### CFU Answers
-1. Sort and Sorted will both sort a list. They both support the `key` parameter. Both are built into Python and don't have dependencies. Both are faster than what we could write ourselves due to their low level implementation in C.
-2. Sort is a method on the List object, where Sorted is a free function. Sort is destructive and Sorted is not. Sort can only be used on Lists, but Sorted can be used on any Iterable. The Sorted function generally uses more memory than the Sort method due to the fact that Sorted makes a copy of the data.
-3. No, "destructive" does not mean items might be removed. It simply refers to rearranging the items in the list. Nothing is deleted - but in the end, it's not exactly the same list.
-
+3. What does destructive mean in this context? Does it mean items may be removed from the list?
 
 ## 2. The `key` Parameter
 The `key` parameter is a function, method or lambda that will serve as means to convert un-sortable objects into sortable objects, on the fly. It can also be used to sort items by unusual criteria, like sorting all odd numbers to the front of a list.
@@ -49,11 +43,6 @@ Sortable is defined by any object that supports the less-than operator via a spe
 2. What does the `reverse` parameter do in both Sort and Sorted?
 3. What makes an object Sortable?
 
-### CFU Answers
-1. Function, Method, Lambda
-2. The `reverse` parameter, when set to True, reverses the order of a sort procedure in a more efficient way than reversing the order after running the sort procedure. This is only partially true due to Python's awesome handling of iterators. But that's a story for another time!
-3. A Sortable object implements the "less-than" operator: `def __lt__(self, other) -> bool`. This means that the builtin `<` operator will work as it does with numbers or strings.
-
 ## 3. Sorting Un-sortable Class Objects
 For this example we will sort a list of random Monsters. Each Monster has these fields: Level and Name, both fields are randomly generated. For this example we'll use a Lambda Callable for our `key` parameter, but it works the same way as if it was a function. The Callable may take a Sortable or Un-sortable object as input and returns a Sortable object as output. The sort procedure then uses this new Sortable object to do the sorting and produce the final order.
 
@@ -63,11 +52,6 @@ For this example we will sort a list of random Monsters. Each Monster has these 
 1. Is it possible to sort a list of un-sortable class objects without altering the class definition?
 2. Is it possible to lexicographically sort a list on more than two fields?
 3. True or False: If you have a list of un-sortable objects you must use the Sort method and not the Sorted function to sort those objects.
-
-### CFU Answers
-1. Yes. One way is to define the `key` parameter with either of the sort procedures.
-2. Yes. There is no hard limit to the number of fields used.
-3. False. Both Sort and Sorted have the ability to support the `key` parameter.
 
 ## 4. Sortable Custom Class
 To make a custom class Sortable all we need to do is implement the "less-than" dunder method. This method should take one input (typically another object like the one being defined) and return a boolean that indicates if this one is less than the other one. This works with polymorphic hierarchies of classes not just exact matches.
@@ -80,8 +64,3 @@ To make a custom class Sortable all we need to do is implement the "less-than" d
 1. How can we alter a custom class to make its instance objects Sortable.
 2. Is it possible to sort a list containing more than one type?
 3. What is the hallmark of an Algebraic Data Type?
-
-### CFU Answers
-1. You can define the "less-than" magic method on the custom class. This method takes another object like this one as input and must return a boolean to indicate if this one should come first (True) or not (False).
-2. Yes, but the objects must be polymorphic, and it should seem logical and feel natural to do this sorting. Just because we can, doesn't mean we should.
-3. An object that supports Python's builtin mathematical operators such as +, -, *, /, //, % etc.
