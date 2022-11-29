@@ -30,4 +30,5 @@ class Monster:
 if __name__ == '__main__':
     # Sort the Monsters list first by level then by name
     monsters = [Monster() for _ in range(10)]
+    monsters.sort(key=lambda x: (x.level, x.name))
     print(monsters)

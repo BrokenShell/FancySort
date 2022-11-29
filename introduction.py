@@ -18,11 +18,12 @@ Similarities
 # Sort with .sort()
 arr_1 = [2, 9, 1, 8, 3, 7, 4, 6, 5]
 print(f"Original list with old order: {arr_1=}")
+arr_1.sort()
+print(f"Same list with new order: {arr_1=}")
 
-# print(f"Same list with new order: {arr_1=}")
 
 # Sort with sorted()
 arr_2 = [3, 7, 4, 6, 5, 2, 9, 1, 8]
 print(f"Original list with old order: {arr_2=}")
-
-# print(f"New list with new order: {arr_3=}")
+arr_3 = sorted(arr_2)
+print(f"New list with new order: {arr_3=}")

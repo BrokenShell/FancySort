@@ -1,4 +1,4 @@
-""" Sortable Classes
+""" Creating Sortable Classes
 To make a custom class Sortable all we need to do is implement the "less-than"
 dunder method. This method should take one input (typically another object like
 the one being defined) and return a boolean that indicates if this one is less
@@ -13,8 +13,11 @@ from Fortuna import shuffle
 
 class ValueType:
 
-    def __init__(self, value):
+    def __init__(self, value: int):
         self.value = value
+
+    def __lt__(self, other):
+        return self.value < other.value
 
     def __repr__(self):
         return f"ValueType({self.value})"
