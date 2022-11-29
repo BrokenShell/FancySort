@@ -17,6 +17,7 @@ class ValueType:
         self.value = value
 
     def __lt__(self, other):
+        """ This method makes this object sortable """
         return self.value < other.value
 
     def __repr__(self):
