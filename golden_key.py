@@ -17,14 +17,14 @@ a custom class later in this workshop. """
 
 
 # 1. Sort `items` by their lookup value
-# items = ["Sword", "Axe", "Hammer"]
-# lookup = {
-#     "Sword": 60,
-#     "Axe": 40,
-#     "Hammer": 20,
-# }
-# items.sort(key=len)
-# print(items)
+items = ["Sword", "Axe", "Hammer"]
+lookup = {
+    "Sword": 60,
+    "Axe": 40,
+    "Hammer": 20,
+}
+items.sort(key=lookup.get)
+print(items)
 
 # 2. Sort `user_data` by last_name, first_name and then age
 user_data = [
